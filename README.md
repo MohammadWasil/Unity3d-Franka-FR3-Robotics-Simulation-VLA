@@ -1,4 +1,5 @@
-# Unity3d-robotics-simulation-VLA
+# Unity3d-Franka-FR3-Robotics-Simulation-VLA
+
 
 This repository contains a Unity simulation for the **Franka FR3** robot, designed for robotic manipulation tasks such as picking up a ball and placing it into a container. 
 
