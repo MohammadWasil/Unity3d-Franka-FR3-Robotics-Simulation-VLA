@@ -142,7 +142,7 @@ Because Unity's `ArticulationBody` physics engine overrides direct `Transform` r
   2. Converting that rotation into a single angle aligned with the robot's physical joint axis (`anchorRotation * Vector3.right`).
   3. Clamping the angle within safe joint limits and applying it to the real motor (`ArticulationBody.xDrive.target`).
 
-## Synthetic Data Collection (Multi-Episode Pick-and-Place)
+## 7. Synthetic Data Collection (Multi-Episode Pick-and-Place)
 
 ### Setting Up the Environment
 * Built a coroutine state machine (Initial Settle → Spawn → Pre-Grasp → Descend → Grasp → Lift → Transport → Place → Release → Retreat & Check) to run continuous pick-and-place episodes automatically.
@@ -166,8 +166,7 @@ Because Unity's `ArticulationBody` physics engine overrides direct `Transform` r
 | ![](media/external_frame_00043.png) | ![](media/wrist_frame_00043.png) | 43,5.7404,-0.741657,0.565913,1.494821,-1.473883,-0.545177,1.519441,-2.378020,0.073001,-0.651373,0.530378,1.507329,-1.486068,-0.529642,1.530220,-2.320153,0.073000 |
 | ![](media/external_frame_00066.png) | ![](media/wrist_frame_00066.png) | 66,7.5296,-0.227725,0.776540,1.187739,-1.782822,-0.801854,2.000680,-1.905455,0.073001,-0.211258,0.793556,1.173061,-1.793101,-0.812009,2.008622,-1.901307,0.073000 |
 
-## Domain Randomization & Simulation Speed-Up
+## 8. Domain Randomization & Simulation Speed-Up
 
 * Implemented per-episode randomization lighting across the Left and Right "Point Lights", with a randomized indoor warm-to-cool color temperature and independently varying left/right `Range` to shift shadows naturally.
 * Added Time.timeScale acceleration (2×–3×) to speed up episode collection while preserving exact 15 Hz simulation timestamps (Edit → Project Settings → Time and change Time Scale from 1 to 2).
-
