@@ -33,6 +33,10 @@ public class EpisodeManager : MonoBehaviour
     public int successfulEpisodes = 0;
     public string currentStage = "Initializing";
 
+    [Header("Domain Randomization (Dual Point Lights)")]
+    public Light leftPointLight;
+    public Light rightPointLight;
+
     private float ballRestY;
     private Quaternion topDownRotation = Quaternion.Euler(180f, 0f, 0f);
 
@@ -191,6 +195,8 @@ public class EpisodeManager : MonoBehaviour
 
     void ResetAndSpawnBall()
     {
+        RandomizeLighting(); // Randomize room lighting at the start of every episode.
+
         ballRigidbody.transform.SetParent(null);
         ballRigidbody.velocity = Vector3.zero;
         ballRigidbody.angularVelocity = Vector3.zero;
@@ -233,5 +239,25 @@ public class EpisodeManager : MonoBehaviour
         Vector3 p = dropperPlatform.position;
         float horizontalDist = Vector2.Distance(new Vector2(b.x, b.z), new Vector2(p.x, p.z));
         return horizontalDist < 0.14f && b.y >= p.y;
+    }
+
+    void RandomizeLighting()
+    {
+        // Picks one random indoor color temperature per episode (warm white <-> cool white)
+        Color warmTint = new Color(1.0f, 0.94f, 0.86f);
+        Color coolTint = new Color(0.90f, 0.95f, 1.0f);
+        Color episodeTint = Color.Lerp(warmTint, coolTint, Random.value);
+
+        if (leftPointLight != null)
+        {
+            leftPointLight.range = Random.Range(5.5f, 8.5f);
+            leftPointLight.color = episodeTint;
+        }
+
+        if (rightPointLight != null)
+        {
+            rightPointLight.range = Random.Range(5.5f, 8.5f);
+            rightPointLight.color = episodeTint;
+        }
     }
 }
