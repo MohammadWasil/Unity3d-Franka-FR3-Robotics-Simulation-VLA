@@ -17159,7 +17159,7 @@ MonoBehaviour:
   liftHeight: 0.35
   placeHeightOffset: 0.085
   moveSpeed: 0.35
-  totalEpisodes: 100
+  totalEpisodes: 300
   currentEpisode: 0
   successfulEpisodes: 0
   currentStage: Initializing

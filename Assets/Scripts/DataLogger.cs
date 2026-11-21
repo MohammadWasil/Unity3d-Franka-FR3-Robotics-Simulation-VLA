@@ -61,6 +61,13 @@ public class DataLogger : MonoBehaviour
         readbackTex = new Texture2D(imageWidth, imageHeight, TextureFormat.RGB24, false);
 
         Directory.CreateDirectory(outputDirectory);
+
+        // Find the next available episode index so new runs append instead of overwriting.
+        while (Directory.Exists(Path.Combine(outputDirectory, $"episode_{savedEpisodesCount:D5}")))
+        {
+            savedEpisodesCount++;
+        }
+
         WriteDatasetMetadata();
     }
 
