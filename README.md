@@ -5,6 +5,8 @@ This repository contains a Unity simulation for the **Franka FR3** robot, design
 
 ![Franka Simulation Preview](media/camera_setup_robot_ball_pickup_place_environment.gif)
 
+You can download the dataset of 306 Episodes from Hugging Face repo : [Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place](https://huggingface.co/datasets/wasil11/Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place)
+
 This simulation acts as the client environment, capturing visual data (such as camera images) and robot state data (such as joint poses). This data is transmitted to a cloud server running an inference engine to predict the next optimal robot action. The simulator then receives the response and executes the predicted actions in real-time.
 
 **Note:** The collected Franka FR3 manipulation dataset (formatted for LeRobot and π₀ fine-tuning) will be published on Hugging Face soon.
