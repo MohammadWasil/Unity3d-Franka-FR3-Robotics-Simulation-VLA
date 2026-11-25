@@ -5,7 +5,8 @@ This repository contains a Unity simulation for the **Franka FR3** robot, design
 
 ![Franka Simulation Preview](media/camera_setup_robot_ball_pickup_place_environment.gif)
 
-You can download the dataset of 306 Episodes from Hugging Face repo : [Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place](https://huggingface.co/datasets/wasil11/Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place)
+You can download the dataset of 306 Episodes from Hugging Face repo : [Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place](https://huggingface.co/datasets/wasil11/Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place) See Citation at the end if you use this dataset in your research.
+
 
 This simulation acts as the client environment, capturing visual data (such as camera images) and robot state data (such as joint poses). This data is transmitted to a cloud server running an inference engine to predict the next optimal robot action. The simulator then receives the response and executes the predicted actions in real-time.
 
@@ -172,3 +173,19 @@ Because Unity's `ArticulationBody` physics engine overrides direct `Transform` r
 
 * Implemented per-episode randomization lighting across the Left and Right "Point Lights", with a randomized indoor warm-to-cool color temperature and independently varying left/right `Range` to shift shadows naturally.
 * Added Time.timeScale acceleration (2×–3×) to speed up episode collection while preserving exact 15 Hz simulation timestamps (Edit → Project Settings → Time and change Time Scale from 1 to 2).
+
+
+## Citation
+
+If you use this dataset in your research or projects, please cite it as follows:
+
+```
+@misc{mohammad_wasil_saleem_2026,
+	author       = { Mohammad Wasil Saleem },
+	title        = { Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place (Revision 8b9b454) },
+	year         = 2026,
+	url          = { https://huggingface.co/datasets/wasil11/Franka-FR3-Unity3d-Simulation-Ball-Pick-And-Place },
+	doi          = { 10.57967/hf/11872 },
+	publisher    = { Hugging Face }
+}
+```
